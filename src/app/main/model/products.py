@@ -28,19 +28,21 @@ class Product(db.Document):
     #producttype =  db.relationship('ProductType', backref='Product', lazy=True)
     #imagename = db.Column(db.String(255), unique=True, nullable=True)
 
-    def __init__(self, id, name, description, producttypeid, imagename,*args, **kwargs):
+    def __init__(self, id, name, description, producttypeid, imagename, *args, **kwargs):
         super(Document, self).__init__(*args, **kwargs)
         self.id = id
         self.name = name
         self.description = description
-        self.producttype_id=producttypeid
-        self.imagename=imagename
+        self.producttype_id = producttypeid
+        self.imagename = imagename
 
     def __repr__(self):
         return "<Product '{}'>".format(self.name)
 
     def to_json(self):
-        return "{ id:" + str(self.id) + ", name:" + self.name +",description:" + self.description + "}"
+        return "{ id:" + str(self.id) + ", name:" + self.name + ",description:" + self.description + "}"
 
     def toJson(self):
         return json.dumps(self, default=lambda o: o.__dict__)
+
+

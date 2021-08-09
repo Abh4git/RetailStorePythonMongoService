@@ -21,15 +21,16 @@ class User(db.Document):
     public_id = db.StringField(max_length=255, required=True)
     password_hash = db.StringField(max_length=255, required=True)
 
-    @property
+#    @property
     def password(self):
         raise AttributeError('password: write-only field')
-    @password.setter
+#    @password.setter
     def password(self, password):
         pwhash = flask_bcrypt.generate_password_hash(password).decode('utf-8')
         self.password_hash = pwhash
 
     def check_password(self, password):
         return flask_bcrypt.check_password_hash(self.password_hash,password)
-def __repr__(self):
-    return "<User '{}'>".format(self.username)
+
+    def __repr__(self):
+        return "<User '{}'>".format(self.username)

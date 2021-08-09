@@ -26,9 +26,9 @@ class ProductType(db.Document):
         self.description = description
         self.code=code
 
-def __repr__(self):
-    return "<ProductType '{}'>".format(self.username)
+    def __repr__(self):
+        return "<ProductType '{}'>".format(self.username)
 
 
-def toJson(self):
-    return json.dumps(self, default=lambda o: o.__dict__)
+    def toJson(self):
+        return json.dumps(self, default=lambda o: o.__dict__)

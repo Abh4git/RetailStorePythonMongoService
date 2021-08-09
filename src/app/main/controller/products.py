@@ -16,7 +16,7 @@ class ProductController:
         return jsonify({"products":products})
 
     def getAllProductsByType(self,producttypeid):
-        products=Product.query.filter_by(producttype_id =producttypeid)
+        products=Product.objects(producttype_id =producttypeid)
         return jsonify({"products":products})
 
     def addProduct(self, id, name, description, producttype_id, imagename):

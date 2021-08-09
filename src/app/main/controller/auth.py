@@ -15,7 +15,7 @@ class AuthenticationController:
         pass
 
     def verify_password(self,username, password):
-        user = User.query.filter_by(username=username).first()
+        user = User.objects(username=username).first()
         if user is None:
             return False
         return user.check_password(password)
