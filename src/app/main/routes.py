@@ -53,7 +53,7 @@ def login():
 
 
 @cross_origin(**api_v2_cors_config)
-@jwt_required()
+#@jwt_required()
 def addUser():
     userController = UserController()
     print(request.is_json)
